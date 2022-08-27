@@ -49,4 +49,8 @@ done
   ]
 }
 ```
+
+> requirement : apt install ossp-uuid jq curl tree
+
+
 <p align="center">berhasil di termux</p>
