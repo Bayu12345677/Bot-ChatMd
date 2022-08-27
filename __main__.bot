@@ -1,0 +1,91 @@
+#!/bin/bash
+
+source <(cat lib/moduler.sh)
+
+# bash itu keren kalo lu punya iq tinggi
+
+Namespace Std :: Sys && {
+	{ Bash.import: feature/io.echo; };
+	{ Bash.import: colorsh/ink; };
+	{ Bash.import: Shua/Ua; };
+	{ Bash.import: minimist/args; };
+}
+
+sys:Debug { project bot chat }
+
+public shell.ai(){
+class __config__;{
+	{
+		public: app =\> [cek_pesan];
+		public: app =\> [respon];
+		public: app =\> [ambil_input];
+		public: app =\> [config];
+	}
+
+	public __config__::cek_pesan()
+	{
+		{
+			minimist.argv ["$1"]
+		};{ sys:Debug [identify: msg]; }
+		
+		#local set__default=$(curl --parallel --parallel-max 500 -sL "https://raw.githubusercontent.com/Bayu12345677/Bot-chat/master/config.json" --insecure)
+		local set__default=$(cat ${my__config})
+		#echo "$msg"
+		var get::all = $(echo "$(@return: [set::default])"|jq -r .config|grep -Po 'msg([0-9]|\n)*')
+		let split_array=0
+		for total_msg in $(echo "$(@return: [get::all])"); do {
+			eval get__reply=($(echo "$(@return: [set::default])"|{ jq .config[].${total_msg}[].reply[]; }|tr "A-Z0-9*" "a-z0-9*"))
+			for cek_isi in ${get__reply[@]}; do
+				#if (test -z "${get__reply[$split_array]}"); then let split_array=($split_array + 1); fi
+				#echo -e "$msg ${get__reply[$split_array]}"
+				if [[ "${msg}" =~ ${get__reply[${split_array}]} ]]; then
+					eval __array_send=($(echo "$(@return: [set::default])"|{ jq .config[]."${total_msg}"[].send[]; }))
+					local random__element=$(echo "${!__array_send[@]}"|sed 's/[[:space:]]/\n/g'|sort --parallel=2 -R|head -1)
+					var get::send = $(echo "${__array_send[${random__element}]}")
+					var get::status = "True"
+					@return: [get::send];break;
+				else { if (test "$get__status" == "True"); then true;else { var get::status = "False"; };fi };fi
+				let split_array++
+			done
+			let split_array=0
+			if (test "$get__status" == "True"); then break;fi
+		};done
+				if (test "$get__status" == "True");then return 0
+				else say.Echo "Saya Tidak Mengerti Tolong ajari saya";fi
+	}
+
+	public __config__::respon()
+	{
+		__config__::cek_pesan msg="$@"
+	}
+
+	public __config__::ambil_input()
+	{
+		{
+			minimist.argv ["$1"]
+		};{ sys:Debug [Input=\<str\>]; }
+		var input::type = $(@return: [sender]|tr "A-Z0-9*" "a-z0-9*")
+		__config__::respon "$(@return: [input::type])"
+	}
+
+	public __config__::config()
+	{
+		{
+			minimist.argv ["$1"]; # Intents
+			minimist.argv ["$2"]; # Debug
+		}
+
+		curl -sL "$Intents" --insecure|jq .config[] &> /dev/null && { curl -sL "$Intents" --insecure -o .httpkey.json;{ export my__config=".httpkey.json"; } } || { true; }
+		if (test -f "$Intents"); then if (test "$Debug" == "True"); then (echo -e "Author © Bayu Risky A.M\nVersion : Md\n[>] Set Config ${Intents}");(echo "[?] Checking config valid"); cat $Intents &> /dev/null && { echo "[√] File is found"; } || { echo "[x] File not Found"; exit $?; }; cat $Intents|jq . &> /dev/null && { echo "[-] source json Valid"; } || { echo "[!] Source Json Not Valid"; }; else { true; }; fi
+		{ export my__config="$Intents"; };else { true; };fi
+	}
+} && { const: __config__ =\> Assistent; };}
+# testing
+: { cl.ambil_input sender="halo" }
+#shell.ai
+#Assistent.config Intents="config.json" Debug=True
+# while true; do
+#	read -p "You : " input
+#	var response::bot = $(cl.ambil_input sender="$input")
+#	say.Echo "Bot : $(@return: [response::bot])"
+# done

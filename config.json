@@ -1,0 +1,67 @@
+{
+	"config":[
+		{
+			"msg1":[
+				{
+					"reply":["halo$", "halo [a-z0-9]*$"],
+					"send":["halo juga","halo"]
+				}
+			],
+			"msg2":[{"reply":["p$", "ngab$", "woi br(e|o)$", "p br(e|o)$", "b[a-z]t$", "o(y|i)$", "o(y|i) b[a-z]t$", "whatshup$", "br(e|o)$"], "send":["ada apa", "kenapa bre"]}],
+			"msg3":[
+				{
+					"reply":["dat(a|e)$", "t[a-z0-9]ngg[a-z0-9]l$", "(sekarang|saiki|kimeng|hari ini|saat ini) tanggal$", "hari ini tanggal berap(a|e)*$"],
+					"send":["date ($(date))", "sekarang hari ($(date +%d:%m:%y))"]
+				}
+			],
+			"msg4":[
+				{
+					"reply":["as(z|u)|anj|kirek|segawon|anj(i|e)n(k|g)|asui$"],
+					"send":["lu kirek", "asu dewe", "bacot lu skubidu", "apa asu"]
+				}
+			],
+			"msg5":[
+				{
+					"reply":["sebutkan nama nama hari$", "nama nama hari$", "hari istimewa"],
+					"send":["senin (hari killer) \\n selasa (hari biasa) \\n rabu (hari random) \\n kamis (hari olahraga) \\n jumat (hari pagi) \\n sabtu (hari penuh harapan) & minggu (hari impian)"]
+				}
+			],
+			"msg6":[
+				{
+					"reply":["gila|stress|gajelas|konyol|gangguan jiwa|bot edan$"],
+					"send":["lu kali yg gila", "lu kali yg gajelas", "lu kali yg edan", "gua cuma bot chat asw"]
+				}
+			],
+			"msg7":[
+				{
+					"reply":["saat ini hari apa$", "kimeng din(o|a) ne (apa|opo)$", "ini hari apa$"],
+					"send":["$(date +%A)"]
+				}
+			],
+			"msg8":[
+				{
+					"reply":["bangsat|bajingan|bangke|bot sialan$"],
+					"send":["gajelas"]
+				}
+			],
+			"msg9":[
+				{
+					"reply":["author$|pembuat script$|creator bot$|(dev|developer) (ai|bot$)|siapa yg (membuat|menciptakan|mengoding|mempunyai ide) bot ini$|(author|creator|pembuat|programmer|dev|developer) kamu siapa$"],
+					"send":["developer project ini adalah BAYU RIZKY A.M", "creator Ai ini adalah Bayu Rizky A.M (terinspirasi dari simi chat)"]
+				}
+			],
+			"msg10":[
+				{
+					"reply":["(crator|author|programmer|pencipta|dev|developer|pembuat) kamu punya (youtube|yt) (ga|gak|tidak)$"],
+					"send":["punya nama channel nya Pejuang Kentang (jangan lupa subs)"]
+				}
+			],
+			"msg11":[
+				{
+					"reply":["pelawak$", "lawak$", "haha (lawak)$"],
+					"send":["lu pelawak nya", "yg ngelawak ente"]
+				}
+			]
+		}
+	]
+}
