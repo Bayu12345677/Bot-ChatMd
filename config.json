@@ -61,7 +61,13 @@
 					"reply":["pelawak$", "lawak$", "haha (lawak)$"],
 					"send":["lu pelawak nya", "yg ngelawak ente"]
 				}
-			]
+			],
+                        "msg12":[
+                                {
+                                       "reply":["?$","!$"],
+                                       "send":["apakah anda tidak punya otak","-_-"]
+                                }
+                        ]
 		}
 	]
 }
