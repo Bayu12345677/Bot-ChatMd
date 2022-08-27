@@ -64,7 +64,7 @@
 			],
                         "msg12":[
                                 {
-                                       "reply":["?$","!$"],
+                                       "reply":["\?$","\!$"],
                                        "send":["apakah anda tidak punya otak","-_-"]
                                 }
                         ]
