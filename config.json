@@ -77,7 +77,7 @@
 			"msg14":[
 				{
 					"reply":["seberapa ganteng [a-z0-9]*$", "se(ganteng|[[:space:]]ganteng) [a-z0-9]*)$"],
-					"send":["$(shuf -i 0-100 -n 1)", "jelek banget", "rata rata", "ganteng banget"]
+					"send":["$(shuf -i 0-100 -n 1)%", "jelek banget", "rata rata", "ganteng banget"]
 				}
 			]
 		}
