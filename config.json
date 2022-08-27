@@ -70,8 +70,14 @@
                         ],
 			"msg13":[
 				{
-					"reply":["(Q|q)uotes$"],
+					"reply":["quotes$", "motivasi$", "kata (bijak|motivasi)$", "kata kata (motivasi|bijak)$"],
 					"send":["Lebih baik mengerti sedikit daripada salah mengerti","Hampir semua pria memang mampu bertahan menghadapi kesulitan. Namun, jika Anda ingin menguji karakter sejati pria, beri dia kekuasaan","Bila tekad seseorang kuat dan teguh, Tuhan akan bergabung dalam usahanya","Hidup itu seperti sebuah sepeda, agar tetap seimbang kita harus tetap bergerak","Cara paling baik untuk menggerakkan diri Anda ialah memberi tugas kepada diri sendiri","Yang palin melelahkan dalam hidup adalah menjadi orang yang tidak tulus"]
+				}
+			],
+			"msg14":[
+				{
+					"reply":["seberapa ganteng [a-z0-9]*$", "se(ganteng|[[:space:]]ganteng) [a-z0-9]*)$"].
+					"send":["$(shuf -i 0-100 -n 1)", "jelek banget", "rata rata", "ganteng banget"]
 				}
 			]
 		}
