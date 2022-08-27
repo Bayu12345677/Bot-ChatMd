@@ -48,5 +48,5 @@ done
     }
   ]
 }
-
+```
 <p align="center">berhasil di termux</p>
