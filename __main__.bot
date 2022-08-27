@@ -75,7 +75,7 @@ class __config__;{
 			minimist.argv ["$2"]; # Debug
 		}
 
-		curl -sL "$Intents" --insecure|jq .config[] &> /dev/null && { curl -sL "$Intents" --insecure -o .httpkey.json;{ export my__config=".httpkey.json"; } } || { true; }
+		curl --parallel --parallel-max 500 -sL "$Intents" --insecure|jq .config[] &> /dev/null && { curl -sL "$Intents" --insecure -o .httpkey.json;{ export my__config=".httpkey.json"; } } || { true; }
 		if (test -f "$Intents"); then if (test "$Debug" == "True"); then (echo -e "Author © Bayu Risky A.M\nVersion : Md\n[>] Set Config ${Intents}");(echo "[?] Checking config valid"); cat $Intents &> /dev/null && { echo "[√] File is found"; } || { echo "[x] File not Found"; exit $?; }; cat $Intents|jq . &> /dev/null && { echo "[-] source json Valid"; } || { echo "[!] Source Json Not Valid"; }; else { true; }; fi
 		{ export my__config="$Intents"; };else { true; };fi
 	}
