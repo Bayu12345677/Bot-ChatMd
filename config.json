@@ -76,7 +76,7 @@
 			],
 			"msg14":[
 				{
-					"reply":["seberapa (ganteng|tampan|tampan(s|f|z)) [a-z0-9].*$", "se(ganteng|tampan|tampan(z|s|f))|[[:space:]](ganteng|tampan|tampan(z|s|f)) [a-z0-9].*$"],
+					"reply":["seberapa (ganteng|tampan|tampan(s|f|z)) [a-z0-9].*$", "se(ganteng|tampan|tampan(z|s|f)|[[:space:]](ganteng|tampan|tampan(z|s|f))) [a-z0-9].*$"],
 					"send":["$(shuf -i 0-100 -n 1)%", "jelek banget", "rata rata", "ganteng banget"]
 				}
 			]
