@@ -13,7 +13,7 @@ Simple Chat Bot with smart Ai supported by regexp in every one of his dictionari
 ### `How to use in your script`
 
 ```ocaml
-source <(lib/moduler.sh)
+source <(cat lib/moduler.sh)
 
 Namespace Std :: Sys;{
   { @require __main__.bot; };{ eval shell.ai; }
